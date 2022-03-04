@@ -46,7 +46,8 @@ public class tabla extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btn_AgregarEquipo = new javax.swing.JButton();
         NombreEquipo = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btn_EliminarEqupio = new javax.swing.JButton();
+        btn_modificarEquipo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +71,17 @@ public class tabla extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_EliminarEqupio.setText("Eliminar");
+        btn_EliminarEqupio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_EliminarEqupioActionPerformed(evt);
+            }
+        });
+
+        btn_modificarEquipo.setText("Modificar");
+        btn_modificarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarEquipoActionPerformed(evt);
             }
         });
 
@@ -90,7 +98,9 @@ public class tabla extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btn_AgregarEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(NombreEquipo))
-                    .addComponent(jButton2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_modificarEquipo)
+                        .addComponent(btn_EliminarEqupio)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -102,8 +112,10 @@ public class tabla extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_AgregarEquipo)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(0, 341, Short.MAX_VALUE))
+                .addComponent(btn_EliminarEqupio)
+                .addGap(18, 18, 18)
+                .addComponent(btn_modificarEquipo)
+                .addGap(0, 298, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,11 +127,18 @@ public class tabla extends javax.swing.JFrame {
         this.NombreEquipo.setText("");
     }//GEN-LAST:event_btn_AgregarEquipoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_EliminarEqupioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EliminarEqupioActionPerformed
         // TODO add your handling code here:
         int pos=this.jTable1.getSelectedRow();
         model.removeRow(pos);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_EliminarEqupioActionPerformed
+
+    private void btn_modificarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarEquipoActionPerformed
+        // TODO add your handling code here:
+        int pos=this.jTable1.getSelectedRow();
+        
+        this.NombreEquipo.setText("");
+    }//GEN-LAST:event_btn_modificarEquipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,7 +178,8 @@ public class tabla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NombreEquipo;
     private javax.swing.JButton btn_AgregarEquipo;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_EliminarEqupio;
+    private javax.swing.JButton btn_modificarEquipo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

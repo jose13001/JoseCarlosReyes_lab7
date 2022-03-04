@@ -34,7 +34,10 @@
                       <Component id="btn_AgregarEquipo" max="32767" attributes="0"/>
                       <Component id="NombreEquipo" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Component id="btn_modificarEquipo" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_EliminarEqupio" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -49,8 +52,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btn_AgregarEquipo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="341" max="32767" attributes="0"/>
+              <Component id="btn_EliminarEqupio" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btn_modificarEquipo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="298" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -101,12 +106,20 @@
     </Component>
     <Component class="javax.swing.JTextField" name="NombreEquipo">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btn_EliminarEqupio">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_EliminarEqupioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_modificarEquipo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modificarEquipoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
