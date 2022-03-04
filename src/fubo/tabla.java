@@ -24,7 +24,7 @@ public class tabla extends javax.swing.JFrame {
      */
     
     ArrayList <Equipos> listaEquipos = new ArrayList();
-            
+    File equipos= new File("equipos.txt");       
     public tabla() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -44,8 +44,9 @@ public class tabla extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        btn_AgregarEquipo = new javax.swing.JButton();
+        NombreEquipo = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,10 +63,17 @@ public class tabla extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_AgregarEquipo.setText("Agregar");
+        btn_AgregarEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_AgregarEquipoActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -79,8 +87,10 @@ public class tabla extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_AgregarEquipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NombreEquipo))
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -88,20 +98,28 @@ public class tabla extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(0, 384, Short.MAX_VALUE))
+                .addComponent(btn_AgregarEquipo)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(0, 341, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_AgregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AgregarEquipoActionPerformed
         // TODO add your handling code here:
-        model.addRow(new Object[]{this.jTextField1.getText().toString()});
-        this.jTextField1.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
+        model.addRow(new Object[]{this.NombreEquipo.getText().toString()});
+        this.NombreEquipo.setText("");
+    }//GEN-LAST:event_btn_AgregarEquipoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int pos=this.jTable1.getSelectedRow();
+        model.removeRow(pos);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,14 +157,15 @@ public class tabla extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField NombreEquipo;
+    private javax.swing.JButton btn_AgregarEquipo;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     public void fileInit (){
-        File equipos= new File("equipos.txt");
+        
         
         try {
             equipos.createNewFile();
